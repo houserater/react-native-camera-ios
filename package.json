@@ -1,0 +1,14 @@
+{
+  "name": "react-native-camera-ios",
+  "description": "Native iOS Camera Component with Custom React View Support",
+  "main": "index.ios.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "version": "1.0.0",
+  "license": "Copyright (c) 2017 HouseRater LLC",
+  "author": "Hank Brekke (https://github.com/hnryjms)"
+}
