@@ -2,13 +2,35 @@
   "name": "react-native-camera-ios",
   "description": "Native iOS Camera Component with Custom React View Support",
   "main": "index.ios.js",
+  "scripts": {
+    "start": "react-native start"
+  },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-jest": "20.0.3",
+    "babel-preset-react-native": "2.1.0",
+    "jest": "20.0.4",
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.46.2",
+    "react-test-renderer": "16.0.0-alpha.12"
+  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
   },
   "version": "1.0.0",
-  "license": "Copyright (c) 2017 HouseRater LLC",
+  "keywords": [
+    "react-native",
+    "react-component",
+    "ios",
+    "camera",
+    "photo",
+    "uiimagepickercontroller"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/houserater/react-native-camera-ios.git"
+  },
+  "license": "MIT",
   "author": "Hank Brekke (https://github.com/hnryjms)"
 }

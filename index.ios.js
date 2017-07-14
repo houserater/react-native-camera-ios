@@ -1,7 +1,16 @@
+/**
+ * Copyright (c) 2017, HouseRater LLC.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @providesModule react-native-camera-ios
+ */
+
 import React from "react";
 import {
     NativeModules,
-    ImageStore,
     requireNativeComponent,
     StyleSheet,
     I18nManager,
@@ -54,11 +63,11 @@ export default class RNCamera extends React.Component {
             return null;
         }
 
-        const innerChildren = __DEV__ ? (
+        const innerChildren = children && (__DEV__ ? (
             <AppContainer rootTag={this.context.rootTag}>
                 {children}
             </AppContainer>
-        ) : children;
+        ) : children);
 
         return (
             <RNCameraHostView
@@ -67,11 +76,13 @@ export default class RNCamera extends React.Component {
                 style={styles.modal}
                 onStartShouldSetResponder={() => true}
             >
-                <View
-                    style={styles.container}
-                >
-                    {innerChildren}
-                </View>
+                {innerChildren && (
+                    <View
+                        style={styles.container}
+                    >
+                        {innerChildren}
+                    </View>
+                )}
             </RNCameraHostView>
         )
     }

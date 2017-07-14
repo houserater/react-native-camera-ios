@@ -79,7 +79,8 @@
 }
 
 - (void)takePicture {
-    CGRect imageFrame = CGRectMake(0, 0, 1024, 768);
+    // iPhone7/iPadPro 12MP camera (4000px x 3000px photos)
+    CGRect imageFrame = CGRectMake(0, 0, 4000, 3000);
     UIGraphicsBeginImageContextWithOptions(imageFrame.size, false, 0.0);
     [self.view.backgroundColor setFill];
     UIRectFill(imageFrame);
