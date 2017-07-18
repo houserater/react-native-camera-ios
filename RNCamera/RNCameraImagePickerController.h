@@ -14,6 +14,8 @@
 @property (nonatomic, weak) id<UIImagePickerControllerDelegate> delegate;
 
 - (void)takePicture;
+- (void)setCameraDevice:(UIImagePickerControllerCameraDevice)cameraDevice;
+- (void)setCameraFlashMode:(UIImagePickerControllerCameraFlashMode)cameraFlashMode;
 #else
 @interface RNCameraImagePickerController : UIImagePickerController
 #endif

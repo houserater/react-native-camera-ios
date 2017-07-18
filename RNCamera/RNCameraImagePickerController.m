@@ -92,6 +92,12 @@
     }];
 }
 
+- (void)setCameraDevice:(UIImagePickerControllerCameraDevice)cameraDevice {
+}
+
+- (void)setCameraFlashMode:(UIImagePickerControllerCameraFlashMode)cameraFlashMode {
+}
+
 #endif
 
 @end

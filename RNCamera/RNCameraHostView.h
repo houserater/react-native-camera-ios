@@ -20,10 +20,14 @@
 @property (nonatomic, copy) RCTDirectEventBlock onCapture;
 @property (nonatomic, copy) RCTDirectEventBlock onCancel;
 
+@property (nonatomic, assign) UIImagePickerControllerCameraDevice cameraDevice;
+@property (nonatomic, assign) UIImagePickerControllerCameraFlashMode cameraFlashMode;
+
 @property (nonatomic, weak) id<RNCameraHostViewInteractor> delegate;
 
 - (instancetype)initWithBridge:(RCTBridge *)bridge NS_DESIGNATED_INITIALIZER;
 
++ (void)checkFlashAvailableWithCameraDevice:(UIImagePickerControllerCameraDevice)device callback:(RCTResponseSenderBlock)callback;
 - (void)capturePhoto;
 
 @end

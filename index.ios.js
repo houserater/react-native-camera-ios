@@ -24,13 +24,16 @@ export default class RNCamera extends React.Component {
     static propTypes = {
         visible: React.PropTypes.bool,
         animationType: React.PropTypes.oneOf([ 'none', 'fade', 'slide' ]),
+        cameraDevice: React.PropTypes.oneOf([ 'front', 'rear' ]),
+        cameraFlashMode: React.PropTypes.oneOf([ 'off', 'auto', 'on' ]),
 
         onCancel: React.PropTypes.func,
         onCapture: React.PropTypes.func,
     };
     static defaultProps = {
         visible: false,
-        animationType: 'slide'
+        animationType: 'slide',
+        cameraFlashMode: 'off'
     };
     static contextTypes = {
         rootTag: React.PropTypes.number,
@@ -38,6 +41,10 @@ export default class RNCamera extends React.Component {
 
     capture() {
         RNCameraHostViewManager.capture();
+    }
+
+    static checkFlashAvailable(callback, cameraDevice = 'rear') {
+        RNCameraHostViewManager.checkFlashAvailableWithCameraDevice(cameraDevice, callback);
     }
 
     _onCapture(event) {

@@ -125,7 +125,31 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     });
 }
 
+- (void)setCameraDevice:(UIImagePickerControllerCameraDevice)cameraDevice {
+    _cameraDevice = cameraDevice;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.imagePicker setCameraDevice:cameraDevice];
+    });
+}
+
+- (void)setCameraFlashMode:(UIImagePickerControllerCameraFlashMode)cameraFlashMode {
+    _cameraFlashMode = cameraFlashMode;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.imagePicker setCameraFlashMode:cameraFlashMode];
+    });
+}
+
 #pragma mark - Exported methods
+
++ (void)checkFlashAvailableWithCameraDevice:(UIImagePickerControllerCameraDevice)device callback:(RCTResponseSenderBlock)callback {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        BOOL isFlashAvailable = [UIImagePickerController isFlashAvailableForCameraDevice:device];
+
+        callback(@[[NSNull null], @(isFlashAvailable)]);
+    });
+}
 
 - (void)capturePhoto {
     dispatch_async(dispatch_get_main_queue(), ^{

@@ -9,6 +9,21 @@
 #import <React/RCTViewManager.h>
 #import <React/RCTInvalidating.h>
 
+@implementation RCTConvert (RNCameraHostViewManager)
+
+RCT_ENUM_CONVERTER(UIImagePickerControllerCameraDevice, (@{
+        @"front": @(UIImagePickerControllerCameraDeviceFront),
+        @"rear": @(UIImagePickerControllerCameraDeviceRear),
+}), UIImagePickerControllerCameraDeviceRear, integerValue);
+
+RCT_ENUM_CONVERTER(UIImagePickerControllerCameraFlashMode, (@{
+        @"off": @(UIImagePickerControllerCameraFlashModeOff),
+        @"auto": @(UIImagePickerControllerCameraFlashModeAuto),
+        @"on": @(UIImagePickerControllerCameraFlashModeOn),
+}), UIImagePickerControllerCameraFlashModeOff, integerValue);
+
+@end
+
 @interface RNCameraHostViewManager : RCTViewManager <RCTInvalidating>
 
 @end

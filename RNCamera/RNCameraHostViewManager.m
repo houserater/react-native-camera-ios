@@ -69,8 +69,13 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_VIEW_PROPERTY(animationType, NSString)
 RCT_EXPORT_VIEW_PROPERTY(onCapture, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onCancel, RCTDirectEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(cameraDevice, UIImagePickerControllerCameraDevice)
+RCT_EXPORT_VIEW_PROPERTY(cameraFlashMode, UIImagePickerControllerCameraFlashMode)
 RCT_EXPORT_METHOD(capture) {
     [self.hostViews.anyObject capturePhoto];
+}
+RCT_EXPORT_METHOD(checkFlashAvailableWithCameraDevice:(UIImagePickerControllerCameraDevice)cameraDevice callback:(RCTResponseSenderBlock)callback) {
+    [RNCameraHostView checkFlashAvailableWithCameraDevice:cameraDevice callback:callback];
 }
 
 @end

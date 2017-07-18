@@ -69,6 +69,19 @@ class CameraModal extends React.Component {
 }
 ```
 
+### Static functions
+
+#### RNCamera.checkFlashAvailable(callback, cameraDevice = 'rear'): Function
+
+This function asks the system whether the `cameraDevice` supports a photo flash.
+If the flash is available, it can be set as the `cameraFlashMode` prop. The
+`cameraDevice` can be either `rear` or `front`. The callback will be called
+with the structure below:
+
+```js
+(err: Error, isFlashAvailable: Boolean) => {}
+```
+
 ### Functions
 
 #### capture()
@@ -90,6 +103,17 @@ Whether the modal should be visible on the screen. Defaults to `false`.
 
 The animation style for opening the camera modal. Can be `none`, `slide`, or
 `fade`. Defaults to `slide`.
+
+#### cameraDevice: String
+
+Which side of the device should be used for the current camera. Can be `front`
+or `rear`. Defaults to `rear`.
+
+#### cameraFlashMode: String
+
+Whether the camera should activate when photos are being taken. Can be `off`,
+`auto` or `on`. Defaults to `off`. This property will do nothing if flash is
+not available on the current `cameraDevice`.
 
 #### onCapture(event): Function
 
