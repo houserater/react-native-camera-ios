@@ -8,6 +8,8 @@
  * @providesModule react-native-camera-ios
  */
 
+import PropTypes from 'prop-types';
+
 import React from "react";
 import {
     NativeModules,
@@ -22,13 +24,13 @@ const RNCameraHostViewManager = NativeModules.RNCameraHostViewManager;
 
 export default class RNCamera extends React.Component {
     static propTypes = {
-        visible: React.PropTypes.bool,
-        animationType: React.PropTypes.oneOf([ 'none', 'fade', 'slide' ]),
-        cameraDevice: React.PropTypes.oneOf([ 'front', 'rear' ]),
-        cameraFlashMode: React.PropTypes.oneOf([ 'off', 'auto', 'on' ]),
+        visible: PropTypes.bool,
+        animationType: PropTypes.oneOf([ 'none', 'fade', 'slide' ]),
+        cameraDevice: PropTypes.oneOf([ 'front', 'rear' ]),
+        cameraFlashMode: PropTypes.oneOf([ 'off', 'auto', 'on' ]),
 
-        onCancel: React.PropTypes.func,
-        onCapture: React.PropTypes.func,
+        onCancel: PropTypes.func,
+        onCapture: PropTypes.func,
     };
     static defaultProps = {
         visible: false,
@@ -36,7 +38,7 @@ export default class RNCamera extends React.Component {
         cameraFlashMode: 'off'
     };
     static contextTypes = {
-        rootTag: React.PropTypes.number,
+        rootTag: PropTypes.number,
     };
 
     capture() {
