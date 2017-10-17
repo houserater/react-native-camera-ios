@@ -96,7 +96,9 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     [super didMoveToSuperview];
 
     if (self.isPresented && !self.superview) {
-        [self _dismissViewController];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self _dismissViewController];
+        });
     }
 }
 
