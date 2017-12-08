@@ -10,6 +10,7 @@
 #import "RNCameraHostView.h"
 
 #import <React/RCTShadowView.h>
+#import <React/RCTImageLoader.h>
 
 @interface RNCameraHostShadowView : RCTShadowView
 
@@ -76,6 +77,17 @@ RCT_EXPORT_METHOD(capture) {
 }
 RCT_EXPORT_METHOD(checkFlashAvailableWithCameraDevice:(UIImagePickerControllerCameraDevice)cameraDevice callback:(RCTResponseSenderBlock)callback) {
     [RNCameraHostView checkFlashAvailableWithCameraDevice:cameraDevice callback:callback];
+}
+RCT_EXPORT_METHOD(resizeImage:(NSString *)fullSizeImagePath toPath:(NSString *)destinationPath withOptions:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
+    if (![fullSizeImagePath hasPrefix:@"file:"] || ![destinationPath hasPrefix:@"file:"]) {
+        callback(@[ @"File path must be URL-style" ]);
+        return;
+    }
+    
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:fullSizeImagePath]]];
+    NSURL *destinationURL = [NSURL URLWithString:destinationPath];
+    
+    [RNCameraHostView resizeImage:image toFileURL:destinationURL withOptions:options callback:callback];
 }
 
 @end

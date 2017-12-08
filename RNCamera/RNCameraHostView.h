@@ -28,6 +28,7 @@
 - (instancetype)initWithBridge:(RCTBridge *)bridge NS_DESIGNATED_INITIALIZER;
 
 + (void)checkFlashAvailableWithCameraDevice:(UIImagePickerControllerCameraDevice)device callback:(RCTResponseSenderBlock)callback;
++ (void)resizeImage:(UIImage *)fullSizeImage toFileURL:(NSURL *)destinationURL withOptions:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback;
 - (void)capturePhoto;
 
 @end

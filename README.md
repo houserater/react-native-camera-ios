@@ -71,7 +71,7 @@ class CameraModal extends React.Component {
 
 ### Static functions
 
-#### RNCamera.checkFlashAvailable(callback, cameraDevice = 'rear'): Function
+#### RNCamera.checkFlashAvailable(callback, cameraDevice = 'rear')
 
 This function asks the system whether the `cameraDevice` supports a photo flash.
 If the flash is available, it can be set as the `cameraFlashMode` prop. The
@@ -80,6 +80,21 @@ with the structure below:
 
 ```js
 (err: Error, isFlashAvailable: Boolean) => {}
+```
+
+#### RNCamera.resizeImage(imagePath, outputPath, options): Promise
+
+This function resizes an image from disk (generally captured by the camera),
+and writes it back to disk in the same or a new location. The path's must be
+URL-style paths (i.e. `file:///user/`), and returns a Promise that resolves
+an empty value.
+
+```js
+(imagePath: String, outputPath: String, options: {
+    width: Number,
+    height: Number,
+    quality: Number // 0.00 - 1.00
+}) => Promise<ImageReadError, null>
 ```
 
 ### Functions

@@ -49,6 +49,19 @@ export default class RNCamera extends React.Component {
         RNCameraHostViewManager.checkFlashAvailableWithCameraDevice(cameraDevice, callback);
     }
 
+    static resizeImage(filePath, outputPath, options) {
+        return new Promise((resolve, reject) => {
+            RNCameraHostViewManager.resizeImage(filePath, outputPath, options, (err, data) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+
+                resolve(data);
+            });
+        });
+    }
+
     _onCapture(event) {
         const { onCapture } = this.props;
 

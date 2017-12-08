@@ -153,6 +153,18 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     });
 }
 
++ (void)resizeImage:(UIImage *)fullSizeImage toFileURL:(NSURL *)destinationURL withOptions:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback {
+    CGSize imageSize = CGSizeMake([options[@"width"] floatValue], [options[@"height"] floatValue]);
+    
+    UIGraphicsBeginImageContext(imageSize);
+    [fullSizeImage drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [UIImageJPEGRepresentation(resizedImage, [options[@"quality"] floatValue]) writeToURL:destinationURL atomically:YES];
+    callback(@[ [NSNull null] ]);
+}
+
 - (void)capturePhoto {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.imagePicker takePicture];
