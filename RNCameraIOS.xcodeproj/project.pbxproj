@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		5C51895F3C12EDB65A9AFDA9 /* RNCameraImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCameraImagePickerController.h; sourceTree = "<group>"; };
 		5C518D847FEC619E5D9078DE /* RNCameraImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCameraImagePickerController.m; sourceTree = "<group>"; };
-		FA17C0E61F151163003E86B6 /* libRNCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNCamera.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA17C0E61F151163003E86B6 /* libRNCameraIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNCameraIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA17C0E91F151163003E86B6 /* RNCameraHostView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNCameraHostView.h; sourceTree = "<group>"; };
 		FA17C0EA1F151163003E86B6 /* RNCameraHostView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCameraHostView.m; sourceTree = "<group>"; };
 		FA17C11C1F1514D1003E86B6 /* RNCameraHostViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCameraHostViewManager.h; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		FA17C0E71F151163003E86B6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA17C0E61F151163003E86B6 /* libRNCamera.a */,
+				FA17C0E61F151163003E86B6 /* libRNCameraIOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,9 +81,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA17C0E51F151163003E86B6 /* RNCamera */ = {
+		FA17C0E51F151163003E86B6 /* RNCameraIOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA17C0EF1F151163003E86B6 /* Build configuration list for PBXNativeTarget "RNCamera" */;
+			buildConfigurationList = FA17C0EF1F151163003E86B6 /* Build configuration list for PBXNativeTarget "RNCameraIOS" */;
 			buildPhases = (
 				FA17C0E21F151163003E86B6 /* Sources */,
 				FA17C0E31F151163003E86B6 /* Frameworks */,
@@ -93,9 +93,9 @@
 			);
 			dependencies = (
 			);
-			name = RNCamera;
+			name = RNCameraIOS;
 			productName = RNCamera;
-			productReference = FA17C0E61F151163003E86B6 /* libRNCamera.a */;
+			productReference = FA17C0E61F151163003E86B6 /* libRNCameraIOS.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -126,7 +126,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA17C0E51F151163003E86B6 /* RNCamera */,
+				FA17C0E51F151163003E86B6 /* RNCameraIOS */,
 			);
 		};
 /* End PBXProject section */
@@ -265,7 +265,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA17C0EF1F151163003E86B6 /* Build configuration list for PBXNativeTarget "RNCamera" */ = {
+		FA17C0EF1F151163003E86B6 /* Build configuration list for PBXNativeTarget "RNCameraIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA17C0F01F151163003E86B6 /* Debug */,
