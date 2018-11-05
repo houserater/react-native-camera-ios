@@ -153,6 +153,17 @@ screen. When children views are defined, this function cannot be called because
 the system replaces the standard view (including the Cancel button) with custom
 views.
 
+## Running the Example App
+
+You can run an example project for `react-native-camera-ios` to see how this
+project works by launching the `examples/ios/RNCameraExamples.xcodeproj` file.
+
+In Xcode 10, you may see a build failure the first time you build. This is because
+of React Native's [lack of support][xcode-build-system] for the new Xcode build
+system. After the first build, Xcode will have ran the `postinstall` script of
+`react-native`, which installs and configures the `third-party` modules, and
+therefore allows a successful Xcode build with the new build system.
+
 ## Notes
 
 - This module is currently in initial stages of development, and it **not
@@ -164,5 +175,6 @@ recommended** for large-scale use
 [MIT][license]
 
 
+[xcode-build-system]: https://github.com/facebook/react-native/issues/19573
 [modal]: http://facebook.github.io/react-native/docs/modal.html
 [license]: https://github.com/houserater/react-native-camera-ios/blob/master/LICENSE
