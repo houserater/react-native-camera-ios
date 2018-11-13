@@ -83,10 +83,10 @@ RCT_EXPORT_METHOD(resizeImage:(NSString *)fullSizeImagePath toPath:(NSString *)d
         callback(@[ @"File path must be URL-style" ]);
         return;
     }
-    
+
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:fullSizeImagePath]]];
     NSURL *destinationURL = [NSURL URLWithString:destinationPath];
-    
+
     [RNCameraHostView resizeImage:image toFileURL:destinationURL withOptions:options callback:callback];
 }
 
