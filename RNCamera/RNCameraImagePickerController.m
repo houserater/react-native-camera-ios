@@ -11,6 +11,8 @@
 
 #if TARGET_IPHONE_SIMULATOR
 
+@property (nonatomic, retain) UIView *cameraViewfinder;
+
 @property (nonatomic, retain) NSTimer *cameraTimer;
 @property (nonatomic, assign) int cameraRed;
 @property (nonatomic, assign) int cameraGreen;
@@ -38,6 +40,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.cameraViewfinder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        self.cameraViewfinder.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    } else {
+        // Mimic physical iPhone devices (esp. iPhone X) which set a viewfinder in the top-left corner at a 4/3 ratio.
+        // See https://hnryjms.io/2019/01/ios-camera-overlay/
+        self.cameraViewfinder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width * 4/3)];
+    }
+    
+    [self.view addSubview:self.cameraViewfinder];
+    
     self.cameraTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(shiftColor) userInfo:nil repeats:YES];
 }
 
@@ -50,7 +65,7 @@
         cameraOverlayView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         cameraOverlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-        [self.view insertSubview:cameraOverlayView atIndex:0];
+        [self.view addSubview:cameraOverlayView];
     }
     _cameraOverlayView = cameraOverlayView;
 }
@@ -60,7 +75,7 @@
     self.cameraGreen += 2;
     self.cameraBlue += 3;
 
-    self.view.backgroundColor = [UIColor colorWithRed:abs(self.cameraRed % 510 - 255) / 255.0f
+    self.cameraViewfinder.backgroundColor = [UIColor colorWithRed:abs(self.cameraRed % 510 - 255) / 255.0f
                                                 green:abs(self.cameraGreen % 510 - 255) / 255.0f
                                                  blue:abs(self.cameraBlue % 510 - 255) / 255.0f
                                                 alpha:1];
@@ -76,6 +91,14 @@
     [super viewWillDisappear:animated];
 
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)takePicture {
@@ -96,6 +119,12 @@
 }
 
 - (void)setCameraFlashMode:(UIImagePickerControllerCameraFlashMode)cameraFlashMode {
+}
+- (void)setCameraViewTransform:(CGAffineTransform)cameraViewTransform {
+    self.cameraViewfinder.transform = cameraViewTransform;
+}
+- (CGAffineTransform)cameraViewTransform {
+    return self.cameraViewfinder.transform;
 }
 
 #endif

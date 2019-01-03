@@ -10,6 +10,7 @@
 
 @property (nonatomic, retain) UIView *cameraOverlayView;
 @property (nonatomic, assign) BOOL showsCameraControls;
+@property (nonatomic, assign) CGAffineTransform cameraViewTransform;
 @property (nonatomic, assign) UIImagePickerControllerSourceType sourceType;
 @property (nonatomic, weak) id<UIImagePickerControllerDelegate> delegate;
 

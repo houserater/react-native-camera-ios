@@ -47,6 +47,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     [self.touchHandler attachToView:subview];
     self.imagePicker.cameraOverlayView = subview;
     self.imagePicker.showsCameraControls = NO;
+    self.imagePicker.cameraViewTransform = CGAffineTransformMakeTranslation(self.offsetX, self.offsetY);
     self.customView = subview;
 
     __weak typeof(self) weakSelf = self;
@@ -140,6 +141,22 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.imagePicker setCameraFlashMode:cameraFlashMode];
+    });
+}
+
+- (void)setOffsetX:(CGFloat)offsetX {
+    _offsetX = offsetX;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.imagePicker.cameraViewTransform = CGAffineTransformMakeTranslation(offsetX, self.offsetY);
+    });
+}
+
+- (void)setOffsetY:(CGFloat)offsetY {
+    _offsetY = offsetY;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.imagePicker.cameraViewTransform = CGAffineTransformMakeTranslation(self.offsetX, offsetY);
     });
 }
 

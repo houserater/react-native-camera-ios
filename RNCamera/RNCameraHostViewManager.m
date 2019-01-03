@@ -68,6 +68,8 @@ RCT_EXPORT_MODULE()
 }
 
 RCT_EXPORT_VIEW_PROPERTY(animationType, NSString)
+RCT_EXPORT_VIEW_PROPERTY(offsetX, CGFloat)
+RCT_EXPORT_VIEW_PROPERTY(offsetY, CGFloat)
 RCT_EXPORT_VIEW_PROPERTY(onCapture, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onCancel, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(cameraDevice, UIImagePickerControllerCameraDevice)

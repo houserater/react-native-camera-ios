@@ -72,8 +72,8 @@
 				FA17C0EA1F151163003E86B6 /* RNCameraHostView.m */,
 				FA17C11C1F1514D1003E86B6 /* RNCameraHostViewManager.h */,
 				FA17C11D1F1514D1003E86B6 /* RNCameraHostViewManager.m */,
-				5C518D847FEC619E5D9078DE /* RNCameraImagePickerController.m */,
 				5C51895F3C12EDB65A9AFDA9 /* RNCameraImagePickerController.h */,
+				5C518D847FEC619E5D9078DE /* RNCameraImagePickerController.m */,
 			);
 			path = RNCamera;
 			sourceTree = "<group>";

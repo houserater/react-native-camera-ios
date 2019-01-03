@@ -16,10 +16,12 @@
 
 @interface RNCameraHostView : UIView <RCTInvalidating>
 
-@property(nonatomic, copy) NSString *animationType;
+@property (nonatomic, copy) NSString *animationType;
 @property (nonatomic, copy) RCTDirectEventBlock onCapture;
 @property (nonatomic, copy) RCTDirectEventBlock onCancel;
 
+@property (nonatomic, assign) CGFloat offsetX;
+@property (nonatomic, assign) CGFloat offsetY;
 @property (nonatomic, assign) UIImagePickerControllerCameraDevice cameraDevice;
 @property (nonatomic, assign) UIImagePickerControllerCameraFlashMode cameraFlashMode;
 
